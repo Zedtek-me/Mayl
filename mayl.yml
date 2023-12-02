@@ -1,0 +1,43 @@
+services:
+  # frontend service
+  frontend:
+    build:
+        context: .
+        dockerfile: ./frontend/Dockerfile
+    image: mayl_frontend
+    container_name: mayl_frontend
+    ports:
+      - 3002:3002
+    volumes:
+      - ./frontend:/frontend
+      - ./frontend/.env:/frontend/.env
+      - ./frontend/public:/frontend/public
+    
+    restart: only_when_stopped
+  
+  # backend service
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    image: mayl_backend
+    container_name: mayl_backend
+    volumes:
+      - ./backend/.env:/backend/.env
+      - ./backend:/backend/
+    restart: always
+    ports:
+      - 12000:12000
+
+  # data base -- postgresql
+  database:
+    image: postgres
+    container_name: mayl_database
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER: user
+      - POSTGRES_PASSWORD: password
+      - POSTGRES_DB: mayl_db
+      
