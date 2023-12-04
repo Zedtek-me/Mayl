@@ -40,4 +40,17 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mayl_db
+
+  # MTA (Haraka)
+  haraka:
+    image: instrumentisto/haraka
+    container_name: mayl_mta_haraka
+    ports:
+      - 25:25
+      - 587:587
+    environment:
+      HARAKA_INSTALL_PLUGINS: haraka-plugin-rcpt-postgresql,haraka-plugin-auth-enc-file@1.0
+    restart: always
+    volumes:
+      - ./backend/src/harakaConfig/smtp.ini:/etc/haraka/config/smtp.ini
       
