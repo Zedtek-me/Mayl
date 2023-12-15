@@ -4,10 +4,26 @@ generator client{
 
 datasource db{
     provider = "postgresql"
-    url = ""
+    url = env("DATABASE_URL")
 }
 
 model User{
-    id BigInt @id
+    id Int @id @default(autoincrement())
+    userName String
+    password String
+    emailAccounts EmailAccounts[]
     // user model
+}
+
+model EmailAccounts{
+    id Int @id @default(autoincrement())
+    emailMessages EmailMessages[]
+    user User @relation(fields: [userId], references: [id])
+    userId Int
+}
+
+model EmailMessages{
+    id BigInt @id @default(autoincrement())
+    emailAccount EmailAccounts @relation(fields: [emailAccountId], references: [id])
+    emailAccountId Int
 }
