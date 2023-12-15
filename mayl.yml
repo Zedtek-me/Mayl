@@ -53,4 +53,6 @@ services:
     restart: always
     volumes:
       - ./backend/src/harakaConfig/smtp.ini:/etc/haraka/config/smtp.ini
+      - ./backend/src/harakaConfig/host_list.ini:/etc/haraka/config/host_list.ini
+      - ./backend/src/harakConfig/outbound.ini:/etc/haraka/config/outbound.ini
       
