@@ -41,19 +41,24 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mayl_db
 
-  # MTA (Haraka)
-  haraka:
-    image: instrumentisto/haraka
-    container_name: mayl_mta_haraka
+  # haraka MTA.
+  custom_haraka:
+    build:
+      context: .
+      dockerfile: ./backend/src/harakaConfig/Dockerfile
+    image: custom_haraka_smtp
+    container_name: custom_haraka_smtp
+    volumes:
+      - ./backend/src/harakaConfig/relay_dest_domains.ini:/haraka_home/haraka/config/relay_dest_domains.ini
+      - ./backend/src/harakaConfig/smtp.ini:/haraka_home/haraka/config/smtp.ini
+      - ./backend/src/harakaConfig/host_list:/haraka_home/haraka/config/host_list
+      - ./backend/src/harakConfig/outbound.ini:/haraka_home/haraka/config/outbound.ini
+      - ./backend/src/harakaConfig/relay.ini:/haraka_home/haraka/config/relay.ini
     ports:
       - 25:25
       - 587:587
-    environment:
-      HARAKA_INSTALL_PLUGINS: haraka-plugin-rcpt-postgresql,haraka-plugin-auth-enc-file@1.0
-    restart: always
-    volumes:
-      - ./backend/src/harakaConfig/smtp.ini:/etc/haraka/config/smtp.ini
-      - ./backend/src/harakaConfig/host_list.ini:/etc/haraka/config/host_list.ini
-      - ./backend/src/harakConfig/outbound.ini:/etc/haraka/config/outbound.ini
-      - ./backend/src/harakaConfig/relay.ini:/etc/haraka/config/relay.ini
-      
+
+  # ubuntu container to install swaks
+  ubuntu:
+    image: ubuntu:latest
+    container_name: swaks_container
