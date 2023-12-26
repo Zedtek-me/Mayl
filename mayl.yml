@@ -52,14 +52,26 @@ services:
       - ./backend/src/harakaConfig/relay_dest_domains.ini:/haraka_home/haraka/config/relay_dest_domains.ini
       - ./backend/src/harakaConfig/smtp.ini:/haraka_home/haraka/config/smtp.ini
       - ./backend/src/harakaConfig/host_list:/haraka_home/haraka/config/host_list
-      - ./backend/src/harakConfig/outbound.ini:/haraka_home/haraka/config/outbound.ini
+      - ./backend/src/harakaConfig/outbound.ini:/haraka_home/haraka/config/outbound.ini
       - ./backend/src/harakaConfig/relay.ini:/haraka_home/haraka/config/relay.ini
       - ./backend/src/harakaConfig/tls.ini:/haraka_home/haraka/config/tls.ini #tls configs
       - ./backend/src/harakaConfig/tls:/haraka_home/haraka/config/tls #certs folder
       - ./backend/src/harakaConfig/auth_flat_file.ini:/haraka_home/haraka/config/auth_flat_file.ini
+      - ./backend/src/harakaConfig/smtp_forward.ini:/haraka_home/haraka/config/smtp_forward.ini
     ports:
       - 25:25
       - 587:587
+  # nginx web server
+  web_server:
+    image: nginx
+    container_name: web_server
+    restart: always
+    ports:
+      - 80:80
+      - 8000:8000
+      - 443:443
+    volumes:
+      - ./backend/src/nginxConfig/nginx.conf:/etc/ngnix/conf.d/ngnix.conf
 
   # ubuntu container to install swaks
   ubuntu:
