@@ -1,18 +1,20 @@
 const path = require("path")
 
 module.exports = {
-    entry:path.resolve(__dirname, ""),
+    entry:path.resolve(__dirname, "src/roots/index.jsx"),
     output:{
-        path:"",
-        filename:""
+        path:path.join(__dirname, "public"),
+        filename:"index.js"
     },
     module:{
         rules:[
             {
                 test:/\.(js|jsx)$/,
                 use:{
-                    loader:["babel-loader"],
-                    options:["@babel/preset-react", "@babel/preset-env"]
+                    loader:"babel-loader",
+                    options:{
+                        presets: ["@babel/preset-react", "@babel/preset-env"]
+                    }
                 }
             },
 
