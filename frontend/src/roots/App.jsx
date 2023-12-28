@@ -4,6 +4,9 @@ import "../styles/root.css"
 import SignUp from "../components/AuthsComponents/SignUp.jsx";
 import Login from "../components/AuthsComponents/Login.jsx"
 import Dashboard from "../components/HomeComponents/Dashboard/Dashboard.jsx";
+import Inbox from "../components/HomeComponents/Dashboard/Inbox.jsx";
+import AllMail from "../components/HomeComponents/Dashboard/AllMayil.jsx";
+
 export const loggedIn = createContext(false)
 
 const App = ()=>{
@@ -20,8 +23,8 @@ const App = ()=>{
                     <Routes>
                         <Route path="/">
                             <Route index element={<SignUp/>}/>
-                            <Route path="login/" element={<Login/>}/>
-                            <Route path="dashboard/" element={<Dashboard/>}/>
+                            <Route path="login" element={<Login/>}/>
+                            <Route path="dashboard" element={<Dashboard/>}/>
                             <Route path="all-mails/:search" element={<AllMail/>}/>
                             <Route path="inbox/:search" element={<Inbox/>}/>
                         </Route>

@@ -1,10 +1,11 @@
 const path = require("path")
 
 module.exports = {
-    entry:path.resolve(__dirname, "src/roots/index.jsx"),
+    entry:path.join(__dirname, "src/roots/index.jsx"),
     output:{
-        path:path.join(__dirname, "public"),
-        filename:"index.js"
+        path:path.join(__dirname, "public/"),
+        filename:"index.js",
+        publicPath:"/"
     },
     module:{
         rules:[
@@ -32,7 +33,7 @@ module.exports = {
 
     devServer:{
         static:{
-            directory:"./public"
+            directory:path.join(__dirname, "public/")
         },
         port:3002,
         historyApiFallback:true,
