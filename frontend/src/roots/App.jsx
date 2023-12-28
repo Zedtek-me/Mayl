@@ -22,11 +22,11 @@ const App = ()=>{
                 <Router>
                     <Routes>
                         <Route path="/">
-                            <Route index element={<SignUp/>}/>
-                            <Route path="login" element={<Login/>}/>
+                            <Route path="signup" element={<SignUp/>}/>
+                            <Route index element={<Login/>}/>
                             <Route path="dashboard" element={<Dashboard/>}/>
-                            <Route path="all-mails/:search" element={<AllMail/>}/>
-                            <Route path="inbox/:search" element={<Inbox/>}/>
+                            <Route path="all-mails" element={<AllMail/>}/>
+                            <Route path="inbox" element={<Inbox/>}/>
                         </Route>
                     </Routes>
                 </Router>
