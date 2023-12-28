@@ -16,7 +16,7 @@ const createUser = async ({username, password})=>{
 
 const users = async (id=null, username=null)=>{
     if(id)return
-    else if(username)return
+    else if(username)return null
     let users = await User.findMany({
         
     })
