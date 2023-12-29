@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function SignUp(props){
     const [signUpInfo, setSignUpInfo] = useState({})
+    const navigator = useNavigate()
     let userHasLoggedIn = useContext(loggedIn)
     return (
         <>
