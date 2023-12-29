@@ -2,7 +2,6 @@ export const updateSignupAndSignin = (e, setter)=>{
     let element = e.target
     let key = element.name
     let value = element.value
-    console.log(key, value)
     let updated = new Object()
     updated[key] = value
     setter((prevState)=>{
