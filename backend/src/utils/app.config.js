@@ -1,7 +1,7 @@
 const {UserModel:User, EmailAccounts, EmailMessages} = require("../models")
-
+const path = require("path")
 const configureApp = (app) =>{
-    app.set("views", "../templates")
+    app.set("views", path.resolve("frontend/public"))
     app.engine("html", require("ejs").renderFile)
 }
 
