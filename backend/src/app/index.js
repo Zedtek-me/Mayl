@@ -26,3 +26,4 @@ app.post("/createEmail", (req, res)=>{
     /**allows a user to create an email account */
     res.send("")
 })
+
