@@ -1,9 +1,16 @@
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"), url("../../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
 *{
     margin: auto;
     padding:auto;
     box-sizing:border-box;
     width: 100%;
     height: 100%;
+    font-family: "Montserrat";
 }
 
 /* login styles combined with signups */
@@ -18,27 +25,33 @@
     padding: 5px;
 }
 
-label, .submit-btn{
+label{
     display: flex;
     flex-direction: column;
     text-align: left;
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 50%;
-    border: solid yellow 1px;
-    margin: 5px
+    height: 20%;
+    margin: 5px;
 }
 
 .submit-btn{
-    height: 25%;
+    height: 10%;
+    width:15%;
+    margin-top:-.05%;
+}
+
+.submit-btn, .submit-btn button {
+    border-radius: 55px;
 }
 
 label input{
     width: 100%;
     height: 50%;
+    border-radius:10px;
 }
 
 label > h3 {
-    margin-bottom:-60%
+    margin-bottom:-18%
 }
