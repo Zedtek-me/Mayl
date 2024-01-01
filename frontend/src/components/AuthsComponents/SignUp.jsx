@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react"
 import { loggedIn } from "../../roots/App.jsx"
 import { updateSignupAndSignin, routeUserBasedOnFetchResult } from "../../utils/authUtils.js"
 import { useNavigate } from "react-router-dom"
+import "../../styles/AuthsStyles/Auths.css"
 
 export default function SignUp(props){
     const [signUpInfo, setSignUpInfo] = useState({})
