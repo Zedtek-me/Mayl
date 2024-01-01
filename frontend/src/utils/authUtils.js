@@ -20,14 +20,22 @@ export const fetchUser = async (e, stateProps)=>{
             "Content-Type":"application/json",
         }
     })
-    let data = response.json()
+    let data = await response.json()
     return data.errors || data
 }
 
-export const routeUserBasedOnFetchResult = async (e, stateProps, navigator)=>{
-    let data = await fetchUser(e, stateProps)
-    if(!data.user){
-        return //show a toast notification on the frontend
+export const routeUserBasedOnFetchResult = async (e, stateProps, navigator, toast)=>{
+    try{
+        let data = await fetchUser(e, stateProps)
     }
+    catch(error){
+        toast.error("No user found!", {
+            position:toast.POSITION.TOP_RIGHT
+        })
+        return 
+    }
+    toast.success("Login successful!", {
+        position:toast.POSITION.TOP_RIGHT
+    })
     return navigator("/dashboard")
 }

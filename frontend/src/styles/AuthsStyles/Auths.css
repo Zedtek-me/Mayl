@@ -133,3 +133,8 @@ input[name="agreementBox"]{
     width: 50%;
     height: 100%;
 }
+
+.toast-container{
+    width: 10%;
+    height: 10%;
+}
