@@ -17,12 +17,20 @@ export default function SignUp(props){
                             <img src="" alt="logo image" />
                         </div>
                         <form action="" id="signup-form" onSubmit={(e)=>routeUserBasedOnFetchResult(e, signUpInfo, navigator)}>
+                            <label htmlFor="username">
+                                <h3 id="email-txt">Username</h3>
+                                <input type="username" name="username" id="username-field" placeholder="Username" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setSignUpInfo)} autoComplete="current-username"/>
+                            </label>
                             <label htmlFor="email">
                                 <h3 id="email-txt">Email</h3>
                                 <input type="email" name="email" id="email-field" placeholder="Email" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setSignUpInfo)} autoComplete="email"/>
                             </label>
                             <label htmlFor="password">
                                 <h3 id="password-txt">Password</h3>
+                                <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateSignupAndSignin(e, setSignUpInfo)} autoComplete="current-password"/>
+                            </label>
+                            <label htmlFor="password">
+                                <h3 id="password-txt">Confirm Password</h3>
                                 <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateSignupAndSignin(e, setSignUpInfo)} autoComplete="current-password"/>
                             </label>
                             <hr className="divider"/>
