@@ -21,8 +21,22 @@
     align-items: center;
 }
 
+/* the class for a div container added by React-toastify */
+.Toastify{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:0px
+}
+
+/* custom class added to the '<ToastContainer/>' component from react-toastify */
+.toast-container {
+    height: fit-content;
+}
+
 .login-page>*{
-    margin:-5%
+    margin:-5%;
 }
 
 #login-form, #signup-form{
@@ -132,9 +146,4 @@ input[name="agreementBox"]{
 .greenWithLogoBg img{
     width: 50%;
     height: 100%;
-}
-
-.toast-container{
-    width: 10%;
-    height: 10%;
 }
