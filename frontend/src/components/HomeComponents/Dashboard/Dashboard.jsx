@@ -34,7 +34,10 @@ export default function Dashboard(props){
                 </div>
             </div>
             <div className="email-previews">
-                Sample previews of the emails
+                <div className="format-section">This is the format section</div>
+                <div className="main-preview-section">
+                    Main preview page
+                </div>
             </div>
         </div>
     )
