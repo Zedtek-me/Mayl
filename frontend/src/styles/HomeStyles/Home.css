@@ -1,0 +1,50 @@
+.dashboard{
+    display: flex;
+    padding: 50px;
+}
+
+.menu-panel, .email-previews{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    text-align: left;
+}
+
+/* parent containers for both logo section and profile details on dashboard */
+.logo-on-dashboard, .profile-details{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    width: 40%;
+    height: fit-content;
+    padding: 3px;
+}
+/* text beside the logo on dashboard page */
+#product-name{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
+.menu-panel, .mail-options{
+    border: solid red 1px;
+}
+
+.name-and-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
