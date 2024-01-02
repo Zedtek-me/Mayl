@@ -33,7 +33,7 @@ export const routeUserBasedOnFetchResult = async (e, stateProps, navigator, toas
             let data = await fetchUser(stateProps)
         }
         catch(error){
-            toast.error("No user found!", {
+            toast.error("Login Error!", {
                 position:toast.POSITION.TOP_RIGHT
             })
             return 
@@ -58,7 +58,7 @@ export const routeUserBasedOnFetchResult = async (e, stateProps, navigator, toas
             let data = await fetchUser(e, stateProps)
         }
         catch(error){
-            toast.error("No user found!", {
+            toast.error("Signup Error!", {
                 position:toast.POSITION.TOP_RIGHT
             })
             return 
