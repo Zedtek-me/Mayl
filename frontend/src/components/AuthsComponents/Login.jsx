@@ -22,15 +22,15 @@ export default function Login(props){
                         <form action="" id="login-form" onSubmit={(e)=>routeUserBasedOnFetchResult(e, loginInfo, navigator, toast)}>
                             <label htmlFor="email">
                                 <h3 id="email-txt">Email</h3>
-                                <input type="email" name="email" id="email-field" placeholder="Email" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="email"/>
+                                <input type="email" name="email" id="email-field" placeholder="Email" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="email" required/>
                             </label>
                             <label htmlFor="password">
                                 <h3 id="password-txt">Password</h3>
-                                <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="current-password"/>
+                                <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="current-password" required/>
                             </label>
                             <hr className="divider"/>
                             <div className="term-agreement">
-                                <input type="checkbox" name="agreementBox" id="agreement-box" />
+                                <input type="checkbox" name="agreementBox" id="agreement-box" required/>
                                 <p id="term-txt">I accept and agree to the terms of use.</p>
                             </div>
                             <div className="btn-prompt">

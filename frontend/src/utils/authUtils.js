@@ -10,9 +10,8 @@ export const updateSignupAndSignin = (e, setter)=>{
 }
 
 
-export const fetchUser = async (e, stateProps)=>{
+export const fetchUser = async (stateProps)=>{
     /**returns a user object from the backend */
-    e.preventDefault()
     let response = await fetch("http://localhost:7000/user", {
         method:"POST",
         body: JSON.stringify(stateProps),
@@ -25,17 +24,49 @@ export const fetchUser = async (e, stateProps)=>{
 }
 
 export const routeUserBasedOnFetchResult = async (e, stateProps, navigator, toast)=>{
-    try{
-        let data = await fetchUser(e, stateProps)
-    }
-    catch(error){
-        toast.error("No user found!", {
+    /**validates the data to be sent; then fetch the user */
+    e.preventDefault()
+    // check whether from signin or signup page, then validate accordingly
+    if(!("username" in stateProps)){
+        // means login page (only expects username and password); fetch directly
+        try{
+            let data = await fetchUser(stateProps)
+        }
+        catch(error){
+            toast.error("No user found!", {
+                position:toast.POSITION.TOP_RIGHT
+            })
+            return 
+        }
+        toast.success("Login successful!", {
             position:toast.POSITION.TOP_RIGHT
         })
-        return 
     }
-    toast.success("Login successful!", {
-        position:toast.POSITION.TOP_RIGHT
-    })
+
+    else{
+        // validate against signup
+        let passwordOne = stateProps.password
+        let passwordTwo = stateProps.confirmPassword
+        if(passwordOne !== passwordTwo){
+            toast.error("Both passwords must match", {
+                position:toast.POSITION.TOP_RIGHT
+            })
+            return 
+        }
+        // otherwise fetch the user here
+        try{
+            let data = await fetchUser(e, stateProps)
+        }
+        catch(error){
+            toast.error("No user found!", {
+                position:toast.POSITION.TOP_RIGHT
+            })
+            return 
+        }
+        toast.success("Signup successful!", {
+            position:toast.POSITION.TOP_RIGHT
+        })
+    }
+
     return navigator("/dashboard")
 }
