@@ -12,24 +12,24 @@ export default function Dashboard(props){
                     <h2 id="product-name">Mayl</h2>
                 </div>
                 <div className="profile-details">
-                        <img src="" alt="user thumbnail" />
-                        <div className="name-and-title">
-                            <h2 id="username">Dummy Name</h2>
-                            <p id="title">Dummy title</p>
-                            {/* an icon should go below here for toggling */}
-                        </div>
+                    <img src="" alt="user thumbnail" />
+                    <div className="name-and-title">
+                        <h4 id="username">Dummy Name</h4>
+                        <p id="title">Dummy title</p>
+                        {/* an icon should go below here for toggling */}
+                    </div>
                 </div>
                <div className="mail-options">
                     <h3 className="label-txt">
                         Mail Options
                     </h3>
-                    <Link to="inbox">Inbox</Link>
-                    <Link to="drafts">Drafts</Link>
-                    <Link to="sent">Sent</Link>
-                    <Link to="bookmark">Bookmarked</Link>
+                    <Link to="/inbox">Inbox</Link>
+                    <Link to="/drafts">Drafts</Link>
+                    <Link to="/sent">Sent</Link>
+                    <Link to="/bookmark">Bookmarked</Link>
                     <div className="other-options">
                        <p>Others {/* add an icon for  toggling here too */}</p>
-                       <Link to="spam">Spam</Link>
+                       <Link to="/spam">Spam</Link>
                     </div>
                 </div>
             </div>
