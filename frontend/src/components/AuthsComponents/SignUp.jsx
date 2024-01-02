@@ -3,6 +3,7 @@ import { loggedIn } from "../../roots/App.jsx"
 import { updateSignupAndSignin, routeUserBasedOnFetchResult } from "../../utils/authUtils.js"
 import { useNavigate, Link } from "react-router-dom"
 import "../../styles/AuthsStyles/Auths.css"
+import { ToastContainer, toast } from "react-toastify"
 
 export default function SignUp(props){
     const [signUpInfo, setSignUpInfo] = useState({})
@@ -16,7 +17,7 @@ export default function SignUp(props){
                         <div className="greenWithLogoBg">
                             <img src="" alt="logo image" />
                         </div>
-                        <form action="" id="signup-form" onSubmit={(e)=>routeUserBasedOnFetchResult(e, signUpInfo, navigator)}>
+                        <form action="" id="signup-form" onSubmit={(e)=>routeUserBasedOnFetchResult(e, signUpInfo, navigator, toast)}>
                             <label htmlFor="username">
                                 <h3 id="email-txt">Username</h3>
                                 <input type="username" name="username" id="username-field" placeholder="Username" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setSignUpInfo)} autoComplete="current-username"/>
@@ -43,6 +44,7 @@ export default function SignUp(props){
                                 <button type="submit">Sign Up</button>
                             </div>
                         </form>
+                        <ToastContainer className="toast-container"/>
                     </div>
                 )
             }

@@ -14,8 +14,7 @@ export default function Login(props){
         <>
             {
                 userHasLoggedIn ? <Dashboard/> : (
-                    <>
-                        <ToastContainer className="toast-container"/>
+                    <div className="toastAndLoginPageParent">
                         <div className="login-page">
                             <div className="greenWithLogoBg">
                                 {/* green background, carrying logo */}
@@ -41,7 +40,8 @@ export default function Login(props){
                                 </div>
                             </form>
                         </div>
-                    </>
+                        <ToastContainer className="toast-container"/>
+                    </div>
                 )
             }
         </>
