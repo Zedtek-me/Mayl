@@ -1,11 +1,15 @@
-import { createTransport } from "nodemailer";
-import { config } from "dotenv";
-config()
-
-const EMAIL_HOST = process.env.EMAIL_HOST
-const EMAIL_PORT = process.env.EMAIL_PORT
-const EMAIL_USER = process.env.EMAIL_USER
-
-export const sendMail = ({body, sender, receiver})=>{
+export const submitMail = async (e, stateValue)=>{
     /**mail sender util */
+    e.preventDefault()
+    let {body, from, to} = stateValue
+    console.log(body, from, to)
+    let response = await fetch()
+    let data = await response.json()
+    // send mail data to the backend for storage in the db, and for relay to the smtp server
+}
+
+
+export function updateComposeMailState(e, flagUpdater){
+    flagUpdater(true)//sets the flag to true ('toSendMail' flag)
+    return 
 }
