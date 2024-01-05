@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { loggedIn } from "../../roots/App.jsx"
-import { fetchUser, updateSignupAndSignin, routeUserBasedOnFetchResult } from "../../utils/authUtils.js"
+import { fetchUser, updateState, routeUserBasedOnFetchResult } from "../../utils/authUtils.js"
 import "../../styles/AuthsStyles/Auths.css"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
@@ -22,11 +22,11 @@ export default function Login(props){
                         <form action="" id="login-form" onSubmit={(e)=>routeUserBasedOnFetchResult(e, loginInfo, navigator, toast)}>
                             <label htmlFor="email">
                                 <h3 id="email-txt">Email</h3>
-                                <input type="email" name="email" id="email-field" placeholder="Email" inputMode="email" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="email" required/>
+                                <input type="email" name="email" id="email-field" placeholder="Email" inputMode="email" onChange={(e)=>updateState(e, setLoginInfo)} autoComplete="email" required/>
                             </label>
                             <label htmlFor="password">
                                 <h3 id="password-txt">Password</h3>
-                                <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateSignupAndSignin(e, setLoginInfo)} autoComplete="current-password" required/>
+                                <input type="password" name="password" id="password-field" placeholder="Password" onChange={(e)=>updateState(e, setLoginInfo)} autoComplete="current-password" required/>
                             </label>
                             <hr className="divider"/>
                             <div className="term-agreement">

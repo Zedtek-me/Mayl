@@ -1,4 +1,4 @@
-export const updateSignupAndSignin = (e, setter)=>{
+export const updateState = (e, setter)=>{
     let element = e.target
     let key = element.name
     let value = element.value

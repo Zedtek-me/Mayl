@@ -1,9 +1,17 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import "../../../styles/HomeStyles/Home.css"
 import { Link } from "react-router-dom"
-
+import ComposeMail from "./ComposeMail.jsx"
+import ComposePrompt from "./ComposePrompt.jsx"
+import { updateComposeMailState } from "../../../utils/emailUtils"
 
 export default function Dashboard(props){
+    let [toSendMail, setToSendMail] = useState(false)
+    // use an effect to cause a re-render of this component whenever the 'toSendMail' state changes from an event listener
+    useEffect(()=>{
+        return
+    }, [toSendMail])
+
     return (
         <div className="dashboard">
             <div className="menu-panel">
@@ -33,12 +41,19 @@ export default function Dashboard(props){
                     </div>
                 </div>
             </div>
-            <div className="email-previews">
-                <div className="format-section">This is the format section</div>
-                <div className="main-preview-section">
-                    Main preview page
-                </div>
-            </div>
+            {
+                toSendMail ? <ComposeMail/> : (
+                    <div className="email-previews">
+                        <div className="format-and-prompt">
+                            <div className="format-section">This is the format section</div>
+                            <ComposePrompt onClick={(e)=> updateComposeMailState(e, setToSendMail)}/>
+                        </div>
+                        <div className="main-preview-section">
+                            Main preview page
+                        </div>
+                    </div>
+                )
+            }
         </div>
     )
 }
