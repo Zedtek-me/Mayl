@@ -68,9 +68,62 @@
     text-align: left;
 }
 
+:where(.mail-options, .other-options) > a {
+    text-decoration: none;
+    width: fit-content;
+    padding: 10px;
+    padding-left: 0%;
+    margin-left: 0%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: black;
+}
+
+/* contains all emails for preview, including read and unreads */
 .email-previews{
-    border: solid 1px black;
     border-radius: 15px;
     background-color: white;
     padding: 35px;
+}
+
+.format-and-prompt{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 20%;
+}
+
+.format-section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: fit-content;
+    margin-left: 0%;
+    margin-top: 3%;
+    padding: 5px;
+    text-align: left;    
+}
+
+#compose-prompt{
+    width: 10%;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin-top: 3%;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 2px 1px grey;
+    background-color: rgb(72, 224, 72);
+    color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#compose-prompt:hover{
+    background-color: rgb(55, 202, 55);
 }

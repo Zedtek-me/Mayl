@@ -44,8 +44,10 @@ export default function Dashboard(props){
             {
                 toSendMail ? <ComposeMail/> : (
                     <div className="email-previews">
-                        <div className="format-section">This is the format section</div>
-                        <ComposePrompt onClick={(e)=> updateComposeMailState(e, setToSendMail)}/>
+                        <div className="format-and-prompt">
+                            <div className="format-section">This is the format section</div>
+                            <ComposePrompt onClick={(e)=> updateComposeMailState(e, setToSendMail)}/>
+                        </div>
                         <div className="main-preview-section">
                             Main preview page
                         </div>
