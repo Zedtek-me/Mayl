@@ -54,6 +54,7 @@ export default function Dashboard(props){
                     </div>
                 )
             }
+            {/* TODO: the formating jsx is meant to be together with the composer component. So, update this later. */}
         </div>
     )
 }

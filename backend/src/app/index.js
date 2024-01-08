@@ -1,5 +1,6 @@
 const express = require("express")
 const {configureApp} = require("../utils/app.config")
+const {sendMailUtil} = require("../utils/mailingUtils")
 require("dotenv").config()
 const applicationPort = process.env.PORT || 7000
 
@@ -18,12 +19,18 @@ app.get("/", (req, res)=>{
 
 app.post("/createUser", (req, res)=>{
     let data = req.body
-    console.log("data...", data)
     res.status(200).json(data)
 })
 
-app.post("/createEmail", (req, res)=>{
-    /**allows a user to create an email account */
-    res.send("")
+app.post("/sendMail", async (req, res)=>{
+    /**uses nodemailer to send email to the smtp server -- haraka*/
+    let {from, to, body} = req.body
+    let mailResult = await sendMailUtil({from, to, body})
+    if(mailResult.messageId){
+        res.status(200).json("mail sent successfully")
+    }
+    res.status(403).json({
+        "error":`failed to send mail to ${to}`
+    })
 })
 
