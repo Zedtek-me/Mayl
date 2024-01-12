@@ -5,7 +5,6 @@ require("dotenv").config()
 const applicationPort = process.env.PORT || 7000
 
 const app = express()
-app.use(express.json())
 configureApp(app)//set further configurations for app.
 app.listen(applicationPort, ()=>console.log(`started listening on ${applicationPort}`))
 
@@ -25,6 +24,7 @@ app.post("/createUser", (req, res)=>{
 app.post("/sendMail", async (req, res)=>{
     /**uses nodemailer to send email to the smtp server -- haraka*/
     let {from, to, body} = req.body
+    console.log("request body... ", req.body)
     let mailResult = await sendMailUtil({from, to, body})
     if(mailResult.messageId){
         res.status(200).json("mail sent successfully")

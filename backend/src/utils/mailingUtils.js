@@ -5,13 +5,14 @@ config({path:"../../.env"})
 // creates a default transport object
 let transport = nodemailer.createTransport(
     {
-        host:"localhost",
-        port:"587",
-        secure:true,
+        host:"custom_haraka_smtp",
+        port:587,
+        secure:false,
         auth:{
             user:"zechariah",
             pass:"password"
-        }
+        },
+        authMethod:"PLAIN"
     }
 )
 
