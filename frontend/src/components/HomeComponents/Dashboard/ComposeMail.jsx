@@ -5,6 +5,7 @@ import { submitMail } from "../../../utils/emailUtils"
 
 const ComposeMail = ()=>{
     const [mailData, setMailData] = useState({})
+    // TODO: get the logged in user, and use its email as the default `from` user. add other fields for the `to` user and `subjects`
     return (
         <div className="compose-mail">
             Compose your mail here

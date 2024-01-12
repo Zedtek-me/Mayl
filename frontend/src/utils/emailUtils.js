@@ -3,9 +3,20 @@ export const submitMail = async (e, stateValue)=>{
     e.preventDefault()
     let {body, from, to} = stateValue
     console.log(body, from, to)
-    let response = await fetch()
+    let response = await fetch("http://localhost:7000/sendMail", {
+        method:"POST",
+        body: JSON.stringify({
+            from:from,
+            to:to,
+            body:body
+        }),
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
     let data = await response.json()
-    // send mail data to the backend for storage in the db, and for relay to the smtp server
+    if(data.success)return data.success
+    return data.error
 }
 
 

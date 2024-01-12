@@ -1,6 +1,14 @@
 const {UserModel:User, EmailAccounts, EmailMessages} = require("../models")
 const path = require("path")
+const express = require("express")
+const cors = require("cors")
+
 const configureApp = (app) =>{
+    app.use(express.json())
+    app.use(cors({
+        origin:"http://localhost:3002",
+        optionsSuccessStatus:200
+    }))
     app.set("views", path.resolve("frontend/public"))
     app.engine("html", require("ejs").renderFile)
 }
